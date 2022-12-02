@@ -2,22 +2,22 @@ export const environment = {
   production: true,
   // replace the data below with your personal data
   personal: {
-    caricature: "gbastos-illustration@2x-mask.png",
-    name: "Guilherme Borges Bastos",
-    birth: "1993-06-29",
-    email: "guilhermeborgesbastos@gmail.com",
-    phone: "+31 68 733 3020",
-    location: "Rotterdam, South Holland, Netherlands"
+    caricature: "marco_polello_avatar.png", //TODPOL mettere immagine hero
+    name: "Marco Polello",
+    birth: "1994-04-29",
+    email: "marcopole668@gmail.com",
+    phone: "+39 3478087193",
+    location: "Camponogara, Venezia, Italia"
   },
   // replace the dummy data below with the real firebase configs
   firebaseConfig: {
-    apiKey: "AIzaSyC2frVRAAltsVTmdwgFnATGHoVUzNHfzsM",
-    authDomain: "live-resume-a575a.firebaseapp.com",
-    databaseURL: "https://live-resume-a575a.firebaseio.com",
-    projectId: "live-resume-a575a",
-    storageBucket: "live-resume-a575a.appspot.com",
-    messagingSenderId: "681076751855",
-    appId: "1:681076751855:web:18bae3866ebfcc4fcd8a1a",
-    measurementId: "G-00VXD77WNG"
+    apiKey: "AIzaSyDIFDirz_wfBrTxtU0TolIyPuGQBhTzRUc",
+    authDomain: "resume-live-894be.firebaseapp.com",
+    databaseURL: "https://resume-live-894be-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "resume-live-894be",
+    storageBucket: "resume-live-894be.appspot.com",
+    messagingSenderId: "266020434697",
+    appId: "1:266020434697:web:e48c37c4743b38b21c19d8",
+    measurementId: "G-YBPQ090ZV5"
   }
 };

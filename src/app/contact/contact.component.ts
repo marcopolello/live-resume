@@ -77,9 +77,11 @@ export class ContactComponent implements OnInit {
 
   saveContact(contact: Contact) {
     this.contactService.createContact(contact).then(() => {
+      console.log("va bene =<<>>>>" + contact);
       this.displayUserInterfaceMessage(true);
     })
     .catch(error => {
+      console.log("ERRORE =<<>>>>" + error);
       this.displayUserInterfaceMessage(false);
     });
   }
@@ -105,7 +107,9 @@ export class ContactComponent implements OnInit {
       message: this.senderMessage.value,
       date: new Date()
     } as Contact;
-
+    console.log(contactValues);
+    console.log("contact values || >>> " + JSON.stringify(contactValues));
+    console.log(contactForm);
     this.saveContact(contactValues);
   }
 }

@@ -13,6 +13,8 @@ import { Injectable } from "@angular/core";
 import localeEn from "@angular/common/locales/en";
 import localePt from "@angular/common/locales/pt";
 import localePtExtra from "@angular/common/locales/extra/pt";
+import localePtExtraIt from "@angular/common/locales/extra/it";
+import localeIt from "@angular/common/locales/it";
 
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
@@ -31,6 +33,7 @@ export class HammerConfig  extends HammerGestureConfig {
 
 registerLocaleData(localeEn, "en");
 registerLocaleData(localePt, "pt-BR", localePtExtra);
+registerLocaleData(localeIt, "it", localePtExtraIt);
 @NgModule({
   imports: [
     BrowserModule,
