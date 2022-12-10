@@ -32,7 +32,7 @@ export class InternationalizationDirective {
         if(this._data) {
             //console.log("THIS DATA || >>> " + JSON.stringify(this._data));
             //console.log(this.property);
-            const value: string[] = this._data.filter(element => element.language === ("it" || "en"))
+            const value: string[] = this._data.filter(element => element.language === ("en" || "en-US"))
                 .map(element => element[this.property]) || [""];
             //console.log("data || >>> " + JSON.stringify(this.ellipsis));
             //console.log(value);

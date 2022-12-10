@@ -3,6 +3,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { ResumeComponent } from "../resume/resume.component";
 import { HeaderComponent } from "../header/header.component";
+import { HeaderModule } from "../header/header.molule";
 import { AboutComponent } from "../about/about.component";
 import { ContactComponent } from "../contact/contact.component";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
@@ -21,13 +22,14 @@ import { FooterComponent } from "../footer/footer.component";
     FontAwesomeModule,
     WelcomeModule,
     ExperienceModule,
-    PostsModule
+    PostsModule,
+    HeaderModule
   ],
   declarations: [ 
     ResumeComponent,
-    HeaderComponent,
     AboutComponent,
     ContactComponent,
+    HeaderComponent,
     FooterComponent
   ],
   exports: [ ResumeComponent ],

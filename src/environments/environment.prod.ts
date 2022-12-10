@@ -11,13 +11,13 @@ export const environment = {
   },
   // replace the dummy data below with the real firebase configs
   firebaseConfig: {
-    apiKey: "AIzaSyDIFDirz_wfBrTxtU0TolIyPuGQBhTzRUc",
-    authDomain: "resume-live-894be.firebaseapp.com",
-    databaseURL: "https://resume-live-894be-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "resume-live-894be",
-    storageBucket: "resume-live-894be.appspot.com",
-    messagingSenderId: "266020434697",
-    appId: "1:266020434697:web:e48c37c4743b38b21c19d8",
-    measurementId: "G-YBPQ090ZV5"
+    apiKey: "AIzaSyDZ2lxzDl89X-y6_HHcHjI6EhqcrVMGDOc",
+    authDomain: "my-website-pol.firebaseapp.com",
+    databaseURL: "https://my-website-pol-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "my-website-pol",
+    storageBucket: "my-website-pol.appspot.com",
+    messagingSenderId: "493187309709",
+    appId: "1:493187309709:web:073c20d2075b4b0669c2c4",
+    measurementId: "G-9FQKBCZ59F"
   }
 };

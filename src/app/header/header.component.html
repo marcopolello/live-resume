@@ -22,15 +22,12 @@
     <div class="child language-container">
         <div class="frame">
             <ul>
-                <li itemprop="availableLanguage" itemscope itemtype="https://schema.org/Language">
-                    <a href="/en/index.html" [ngClass]="{'active': locale === 'en'}" itemprop="name">EN</a>
-                </li>
-                <li itemprop="availableLanguage" itemscope itemtype="https://schema.org/Language">
-                    <a href="/pt/index.html" [ngClass]="{'active': locale === 'pt'}" itemprop="name">PT</a>
-                </li>
+                <li><a class="anchor_no_reload" (click)="onModalOpen($event)" itemprop="url">Login</a></li>
             </ul>
         </div>
     </div>
+
+    <app-login-modal (changeState)="receiveState($event)" [_isVisible]="isVisible"></app-login-modal>
 
     <div class="child share-container" #shareBtn>
         <fa-icon [icon]="faShareAlt" class="icon" (click)="share()" alt="share" itemprop="share"></fa-icon>

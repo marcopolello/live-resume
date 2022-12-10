@@ -19,10 +19,42 @@ import localeIt from "@angular/common/locales/it";
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { AngularFireAnalyticsModule } from "@angular/fire/compat/analytics";
+import {firebase, firebaseui, FirebaseUIModule} from 'firebaseui-angular';
+import {AngularFireAuthModule, USE_EMULATOR as USE_AUTH_EMULATOR} from "@angular/fire/compat/auth";
 import { environment } from "../environments/environment";
 
 import { HammerModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from "@angular/platform-browser";
 import { DIRECTION_ALL } from "hammerjs";
+
+const firebaseUiAuthConfig: firebaseui.auth.Config = {
+  signInFlow: 'popup',
+  signInOptions: [
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    {
+      scopes: [
+        'public_profile',
+        'email',
+        'user_likes',
+        'user_friends'
+      ],
+      customParameters: {
+        'auth_type': 'reauthenticate'
+      },
+      provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID
+    },
+    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+    firebase.auth.GithubAuthProvider.PROVIDER_ID,
+    {
+      requireDisplayName: false,
+      provider: firebase.auth.EmailAuthProvider.PROVIDER_ID
+    },
+    firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+    firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
+  ],
+  tosUrl: '<your-tos-link>',
+  privacyPolicyUrl: '<your-privacyPolicyUrl-link>',
+  credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO
+};
 
 @Injectable()
 export class HammerConfig  extends HammerGestureConfig {
@@ -43,13 +75,15 @@ registerLocaleData(localeIt, "it", localePtExtraIt);
     PageNotFoundModule,
     PageNotFoundRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    FirebaseUIModule.forRoot(firebaseUiAuthConfig),
     AngularFireDatabaseModule,
     AngularFireAnalyticsModule,
     HammerModule
   ],
   declarations: [ AppComponent ],
   bootstrap: [ AppComponent ],
-  providers: [
+  providers: [ {provide: USE_AUTH_EMULATOR, useValue: !environment.production ? ['localhost', 9099] : undefined},
     {
       provide: HAMMER_GESTURE_CONFIG,
       useClass: HammerConfig,

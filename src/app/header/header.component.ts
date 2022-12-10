@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   private ngNavigatorShareService: NgNavigatorShareService;
   
   hasMenuToggled: boolean;
+  isVisible:boolean;
   faBars: IconDefinition;
   faShareAlt: IconDefinition;
   faCloudDownloadAlt: IconDefinition;
@@ -98,6 +99,17 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     this.hasMenuToggled = this.pageXOffset > 1024;
   }
 
+  onModalOpen(event: any): void {
+    //console.log(event);
+    this.isVisible = !this.isVisible;
+    //console.log("is visible nel padre" + this.isVisible);
+  }
+
+  receiveState(event: any){
+    //console.log("STATO =>>>" + event);
+    this.isVisible = event;
+  }
+
   async share() {
     try{
       await this.ngNavigatorShareService.share({
@@ -106,7 +118,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
         url: "https://marcopolello.github.io/"
       });
     } catch(error) {
-      console.log("You app is not shared, reason: ", error);
+      //console.log("You app is not shared, reason: ", error);
     }    
   }
 }
