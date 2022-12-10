@@ -4,6 +4,8 @@ import {
   EventEmitter, ElementRef,
   Output
 } from "@angular/core";
+import {AngularFireAuth} from '@angular/fire/compat/auth';
+import {FirebaseUISignInSuccessWithAuthResult} from 'firebaseui-angular';
 
 @Component({
   selector: 'app-login-modal',
@@ -13,9 +15,20 @@ import {
 
 export class LoginModalComponent {
 
-  constructor(private elRef: ElementRef) { }
+  constructor(private afAuth: AngularFireAuth) {
+  }
 
-  public elWidth: number;
+  ngOnInit(): void {
+    this.afAuth.authState.subscribe(d => console.log(d));
+  }
+
+  logout() {
+    this.afAuth.signOut();
+  }
+
+  successCallback(data: FirebaseUISignInSuccessWithAuthResult) {
+    console.log(data);
+  }
 
   //@Input() isVisible = false;
 
@@ -23,12 +36,6 @@ export class LoginModalComponent {
 
   @Output() changeState = new EventEmitter<boolean>();
 
-  ngOnInit(): void {
-  }
-
-  private onResizeElement(): void {
-    this.elWidth = this.elRef.nativeElement.clientWidth;
-  }
 
   closeModal() {
     this._isVisible = !this._isVisible;

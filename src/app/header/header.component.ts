@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, Renderer2, Inject, LOCALE_ID, AfterViewInit } from "@angular/core";
 import { faBars, faShareAlt, faCloudDownloadAlt, IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { NgNavigatorShareService } from "ng-navigator-share";
+import {AngularFireAuth} from '@angular/fire/compat/auth';
+import {FirebaseUISignInFailure, FirebaseUISignInSuccessWithAuthResult} from 'firebaseui-angular';
+import {Router} from '@angular/router';
 
 @Component({
   selector: "app-header",
@@ -26,7 +29,9 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   constructor(
     @Inject(LOCALE_ID) public locale: string,
     private renderer: Renderer2,
-    ngNavigatorShareService: NgNavigatorShareService
+    ngNavigatorShareService: NgNavigatorShareService,
+    private afAuth: AngularFireAuth,
+    private router: Router
   ) {
     this.ngNavigatorShareService = ngNavigatorShareService;
   }
@@ -63,6 +68,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     this.faBars = faBars;
     this.faShareAlt = faShareAlt;
     this.faCloudDownloadAlt = faCloudDownloadAlt;
+    this.afAuth.authState.subscribe(d => console.log(d));
   }
 
   private updateNavigation() {
@@ -120,5 +126,22 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     } catch(error) {
       //console.log("You app is not shared, reason: ", error);
     }    
+  }
+
+  logout() {
+    this.afAuth.signOut();
+  }
+
+  successCallback(data: FirebaseUISignInSuccessWithAuthResult) {
+    console.log('successCallback', data);
+    this.router.navigate(['page']);
+  }
+
+  errorCallback(data: FirebaseUISignInFailure) {
+    console.warn('errorCallback', data);
+  }
+
+  uiShownCallback() {
+    console.log('UI shown');
   }
 }

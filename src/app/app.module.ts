@@ -83,7 +83,7 @@ registerLocaleData(localeIt, "it", localePtExtraIt);
   ],
   declarations: [ AppComponent ],
   bootstrap: [ AppComponent ],
-  providers: [ {provide: USE_AUTH_EMULATOR, useValue: !environment.production ? ['localhost', 9099] : undefined},
+  providers: [ {provide: USE_AUTH_EMULATOR, useValue: !environment.production ? ['http://localhost', 9099] : undefined},
     {
       provide: HAMMER_GESTURE_CONFIG,
       useClass: HammerConfig,

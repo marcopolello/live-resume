@@ -1,1 +1,5 @@
-<div class="modal" *ngIf="_isVisible" id="firebaseui-auth-container"></div>
+<div class="modal" *ngIf="_isVisible" id="firebaseui-auth-container">
+    <span (click)="closeModal()" class="close">&times;</span>
+    <firebase-ui class="fireBaseUI" (signInSuccessWithAuthResult)="successCallback($event)"></firebase-ui>
+</div>
+<div class="modal-overlay" *ngIf="_isVisible"></div>

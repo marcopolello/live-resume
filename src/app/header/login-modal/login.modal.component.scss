@@ -25,7 +25,7 @@ width: 80%;
 .close {
 color: #aaaaaa;
 float: right;
-font-size: 28px;
+font-size: 18px;
 font-weight: bold;
 }
 
@@ -43,4 +43,8 @@ left: 0;
 right: 0;
 bottom: 0;
 background-color: rgba(0, 0, 0, 0.5);
+}
+
+.fireBaseUI{
+    padding: 5px;
 }
