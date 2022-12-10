@@ -15,14 +15,14 @@ export const environment = {
   },
   // replace the dummy data below with the real firebase configs
   firebaseConfig: {
-    apiKey: "AIzaSyDZ2lxzDl89X-y6_HHcHjI6EhqcrVMGDOc",
-    authDomain: "my-website-pol.firebaseapp.com",
-    databaseURL: "https://my-website-pol-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "my-website-pol",
-    storageBucket: "my-website-pol.appspot.com",
-    messagingSenderId: "493187309709",
-    appId: "1:493187309709:web:073c20d2075b4b0669c2c4",
-    measurementId: "G-9FQKBCZ59F"
+    apiKey: "AIzaSyDZ2lxzDhqcrVMGDOc",
+    authDomain: "my-website-aseapp.com",
+    databaseURL: "https://my-wdb.europe-west1.firebasedatabase.app",
+    projectId: "my-wpol",
+    storageBucket: "my-websi.appspot.com",
+    messagingSenderId: "4939709",
+    appId: "1:4931873d2075b4b0669c2c4",
+    measurementId: "G-9FQZ59F"
   }
 };
 
